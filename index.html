@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pobierz TotemMaker</title>
+    <script>
+        function redirectToStore() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.totem.uk";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/us/app/totemmaker/id1440494243";
+            } else {
+                document.getElementById("message").innerHTML = "Nie można wykryć systemu. Pobierz aplikację ręcznie.";
+            }
+        }
+    </script>
+</head>
+<body onload="redirectToStore()">
+    <h2 id="message">Przekierowywanie...</h2>
+</body>
+</html>
